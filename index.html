@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="A modern Student Management System for managing students, academic records and student information."
+    />
+
+    <meta
+      name="theme-color"
+      content="#2563eb"
+    />
+
+    <meta
+      name="author"
+      content="Student Management System"
+    />
+
+    <title>🎓 Student Management System</title>
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <style>
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.12),
+            transparent 30%
+          ),
+          linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5,
+            #7c3aed
+          );
+
+        color: white;
+
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+      }
+
+      .loader-content {
+        text-align: center;
+      }
+
+      .loader-icon {
+        font-size: 70px;
+
+        margin-bottom: 15px;
+
+        animation:
+          loaderFloat 2s ease-in-out infinite;
+      }
+
+      .loader-title {
+        font-family: Arial, sans-serif;
+
+        font-size: 28px;
+
+        font-weight: 800;
+
+        margin-bottom: 8px;
+      }
+
+      .loader-subtitle {
+        font-family: Arial, sans-serif;
+
+        font-size: 14px;
+
+        opacity: 0.8;
+
+        margin-bottom: 25px;
+      }
+
+      .loader-spinner {
+        width: 42px;
+        height: 42px;
+
+        margin: auto;
+
+        border: 4px solid
+          rgba(255, 255, 255, 0.25);
+
+        border-top-color: white;
+
+        border-radius: 50%;
+
+        animation:
+          loaderSpin 0.9s linear infinite;
+      }
+
+      @keyframes loaderSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes loaderFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="root">
+
+      <div id="initial-loader">
+
+        <div class="loader-content">
+
+          <div class="loader-icon">
+            🎓
+          </div>
+
+          <div class="loader-title">
+            Student Management
+          </div>
+
+          <div class="loader-subtitle">
+            Preparing your dashboard...
+          </div>
+
+          <div class="loader-spinner"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      window.addEventListener("load", function () {
+
+        setTimeout(function () {
+
+          const loader =
+            document.getElementById(
+              "initial-loader"
+            );
+
+          if (loader) {
+
+            loader.style.opacity = "0";
+
+            loader.style.visibility =
+              "hidden";
+
+            setTimeout(function () {
+              loader.remove();
+            }, 500);
+
+          }
+
+        }, 600);
+
+      });
+    </script>
+
+  </body>
+</html>
